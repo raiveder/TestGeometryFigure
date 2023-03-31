@@ -26,20 +26,24 @@ namespace TestShool
             int heightContainer = 150;
 
             Path triangle = CreateTriangle(size, widthContainer, heightContainer);
-            Path square = CreateSquare(size, widthContainer, heightContainer);
-            Path ellipse = CreateEllipse(size, widthContainer, heightContainer);
-            Path rhomb = CreateRhomb(size, widthContainer, heightContainer);
-            Path flame = CreateFlame(size, widthContainer, heightContainer);
-            Path pentagon = CreatePentagon(size, widthContainer, heightContainer);
-            Path star = CreateStar(size, widthContainer, heightContainer);
+            Path triangle1 = CreateTriangle(size, widthContainer, heightContainer);
+            Path triangle2 = CreateTriangle(size, widthContainer, heightContainer);
+            //Path square = CreateSquare(size, widthContainer, heightContainer);
+            //Path ellipse = CreateEllipse(size, widthContainer, heightContainer);
+            //Path rhomb = CreateRhomb(size, widthContainer, heightContainer);
+            //Path flame = CreateFlame(size, widthContainer, heightContainer);
+            //Path pentagon = CreatePentagon(size, widthContainer, heightContainer);
+            //Path star = CreateStar(size, widthContainer, heightContainer);
 
             cnvAnswerFirst.Children.Add(triangle);
-            cnvAnswerFirst.Children.Add(square);
-            cnvAnswerFirst.Children.Add(ellipse);
-            cnvAnswerFirst.Children.Add(rhomb);
-            cnvAnswerFirst.Children.Add(flame);
-            cnvAnswerFirst.Children.Add(pentagon);
-            cnvAnswerFirst.Children.Add(star);
+            cnvAnswerFirst.Children.Add(triangle1);
+            cnvAnswerFirst.Children.Add(triangle2);
+            //cnvAnswerFirst.Children.Add(square);
+            //cnvAnswerFirst.Children.Add(ellipse);
+            //cnvAnswerFirst.Children.Add(rhomb);
+            //cnvAnswerFirst.Children.Add(flame);
+            //cnvAnswerFirst.Children.Add(pentagon);
+            //cnvAnswerFirst.Children.Add(star);
         }
 
         private Path CreateTriangle(int size, int widthContainer, int heightContainer)
@@ -58,27 +62,24 @@ namespace TestShool
             {
                 StrokeThickness = 3,
                 Stroke = (Brush)new BrushConverter().ConvertFrom("#F14C18"),
-                Data = g,
-                Margin = new Thickness(200, 0, 0, 0)
+                Data = g
             };
         }
 
         private Polygon CreateSquare(ref int x, int size, int sizeContainer, bool IsUp)
         {
-            int y = GetCoordinateY(size, sizeContainer, IsUp);
-
-            return new Polygon()
-            {
-                Points = new PointCollection()
-                {
-                    new Point(x, y),
-                    new Point(x, y -= size),
-                    new Point(x += size, y),
-                    new Point(x, y + size),
-                },
-                StrokeThickness = 3,
-                Stroke = (Brush)new BrushConverter().ConvertFrom("#F14C18")
-            };
+            return new Polygon();
+            //{
+            //    Points = new PointCollection()
+            //    {
+            //        new Point(x, y),
+            //        new Point(x, y -= size),
+            //        new Point(x += size, y),
+            //        new Point(x, y + size),
+            //    },
+            //    StrokeThickness = 3,
+            //    Stroke = (Brush)new BrushConverter().ConvertFrom("#F14C18")
+            //};
         }
 
         private Ellipse CreateEllipse(ref int x, int size, int sizeContainer, bool IsUp)
@@ -109,63 +110,56 @@ namespace TestShool
 
         private Polygon CreateRhomb(ref int x, int size, int sizeContainer, bool IsUp)
         {
-            int y = GetCoordinateY(size, sizeContainer, IsUp);
-
-            return new Polygon()
-            {
-                Points = new PointCollection()
-                {
-                    new Point(x + size / 2, y),
-                    new Point(x, y -= size / 2),
-                    new Point(x += size / 2, y - size / 2),
-                    new Point(x += size / 2, y),
-                },
-                StrokeThickness = 3,
-                Stroke = (Brush)new BrushConverter().ConvertFrom("#F14C18")
-            };
+            return new Polygon();
+            //{
+            //    Points = new PointCollection()
+            //    {
+            //        new Point(x + size / 2, y),
+            //        new Point(x, y -= size / 2),
+            //        new Point(x += size / 2, y - size / 2),
+            //        new Point(x += size / 2, y),
+            //    },
+            //    StrokeThickness = 3,
+            //    Stroke = (Brush)new BrushConverter().ConvertFrom("#F14C18")
+            //};
         }
 
         private Polygon CreateFlame(ref int x, int size, int sizeContainer, bool IsUp)
         {
-            int y = GetCoordinateY(size, sizeContainer, IsUp);
-
-            return new Polygon()
-            {
-                Points = new PointCollection()
-                {
-                    new Point(x + size / 6, y),
-                    new Point(x, y - size / 4),
-                    new Point(x += size / 2, y - size),
-                    new Point(x += size / 2, y - size / 4),
-                    new Point(x - size / 6, y)
-                },
-                StrokeThickness = 3,
-                Stroke = (Brush)new BrushConverter().ConvertFrom("#F14C18")
-            };
+            return new Polygon();
+            //{
+            //    Points = new PointCollection()
+            //    {
+            //        new Point(x + size / 6, y),
+            //        new Point(x, y - size / 4),
+            //        new Point(x += size / 2, y - size),
+            //        new Point(x += size / 2, y - size / 4),
+            //        new Point(x - size / 6, y)
+            //    },
+            //    StrokeThickness = 3,
+            //    Stroke = (Brush)new BrushConverter().ConvertFrom("#F14C18")
+            //};
         }
 
         private Polygon CreatePentagon(ref int x, int size, int sizeContainer, bool IsUp)
         {
-            int y = GetCoordinateY(size, sizeContainer, IsUp);
-
-            return new Polygon()
-            {
-                Points = new PointCollection()
-                {
-                    new Point(x + size / 6, y),
-                    new Point(x, y - size + size / 4),
-                    new Point(x += size / 2, y - size),
-                    new Point(x += size / 2, y - size + size / 4),
-                    new Point(x - size / 6, y)
-                },
-                StrokeThickness = 3,
-                Stroke = (Brush)new BrushConverter().ConvertFrom("#F14C18")
-            };
+            return new Polygon();
+            //{
+            //    Points = new PointCollection()
+            //    {
+            //        new Point(x + size / 6, y),
+            //        new Point(x, y - size + size / 4),
+            //        new Point(x += size / 2, y - size),
+            //        new Point(x += size / 2, y - size + size / 4),
+            //        new Point(x - size / 6, y)
+            //    },
+            //    StrokeThickness = 3,
+            //    Stroke = (Brush)new BrushConverter().ConvertFrom("#F14C18")
+            //};
         }
 
         private Polygon CreateStar(ref int x, int size, int sizeContainer, bool IsUp)
         {
-            int y = GetCoordinateY(size, sizeContainer, IsUp);
             x += size / 2;
 
             int count = 5;
@@ -174,18 +168,18 @@ namespace TestShool
             double alpha = 0;
             PointCollection points = new PointCollection();
 
-            for (int i = 0; i < 2 * count + 1; i++)
-            {
-                if (i % 2 == 0)
-                {
-                    points.Add(new Point(x + innerRadius * Math.Cos(alpha), y + innerRadius * Math.Sin(alpha)));
-                }
-                else
-                {
-                    points.Add(new Point(x + outerRadius * Math.Cos(alpha), y + outerRadius * Math.Sin(alpha)));
-                }
-                alpha += Math.PI / count;
-            }
+            //for (int i = 0; i < 2 * count + 1; i++)
+            //{
+            //    if (i % 2 == 0)
+            //    {
+            //        points.Add(new Point(x + innerRadius * Math.Cos(alpha), y + innerRadius * Math.Sin(alpha)));
+            //    }
+            //    else
+            //    {
+            //        points.Add(new Point(x + outerRadius * Math.Cos(alpha), y + outerRadius * Math.Sin(alpha)));
+            //    }
+            //    alpha += Math.PI / count;
+            //}
 
             x += size / 2;
 
