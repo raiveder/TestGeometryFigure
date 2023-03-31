@@ -26,8 +26,6 @@ namespace TestShool
             int heightContainer = 150;
 
             Path triangle = CreateTriangle(size, widthContainer, heightContainer);
-            Path triangle1 = CreateTriangle(size, widthContainer, heightContainer);
-            Path triangle2 = CreateTriangle(size, widthContainer, heightContainer);
             //Path square = CreateSquare(size, widthContainer, heightContainer);
             //Path ellipse = CreateEllipse(size, widthContainer, heightContainer);
             //Path rhomb = CreateRhomb(size, widthContainer, heightContainer);
@@ -36,8 +34,6 @@ namespace TestShool
             //Path star = CreateStar(size, widthContainer, heightContainer);
 
             cnvAnswerFirst.Children.Add(triangle);
-            cnvAnswerFirst.Children.Add(triangle1);
-            cnvAnswerFirst.Children.Add(triangle2);
             //cnvAnswerFirst.Children.Add(square);
             //cnvAnswerFirst.Children.Add(ellipse);
             //cnvAnswerFirst.Children.Add(rhomb);
