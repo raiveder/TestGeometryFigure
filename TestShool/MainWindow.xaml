@@ -1,0 +1,17 @@
+﻿<Window x:Class="TestShool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestShool"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <ScrollViewer>
+            <StackPanel Margin="10">
+                <TextBlock Text="1. Расставь верные знаки." FontSize="20"/>
+                <Canvas Name="cnvAnswerFirst" Margin="30 10 30 10" Height="15"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
