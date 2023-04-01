@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Shapes;
@@ -16,35 +17,51 @@ namespace TestShool
         {
             InitializeComponent();
 
-            ShowFigure();
+            CreateFigure();
         }
 
-        private void ShowFigure()
+        private void CreateFigure()
         {
             int size = 40;
             int widthContainer = 150;
             int heightContainer = 150;
 
-            Path triangle = CreateTriangle(size, widthContainer, heightContainer);
-            Path square = CreateSquare(size, widthContainer, heightContainer);
-            Path ellipse = CreateEllipse(size, widthContainer, heightContainer);
-            Path rhomb = CreateRhomb(size, widthContainer, heightContainer);
-            Path flame = CreateFlame(size, widthContainer, heightContainer);
-            Path pentagon = CreatePentagon(size, widthContainer, heightContainer);
-            Path star = CreateStar(size, widthContainer, heightContainer);
+            List<Geometry> figures;
 
-            cnvAnswerFirst.Children.Add(triangle);
-            cnvAnswerFirst.Children.Add(square);
-            cnvAnswerFirst.Children.Add(ellipse);
-            cnvAnswerFirst.Children.Add(rhomb);
-            cnvAnswerFirst.Children.Add(flame);
-            cnvAnswerFirst.Children.Add(pentagon);
-            cnvAnswerFirst.Children.Add(star);
+            while (CheckIntersections())
+            {
+                figures = new List<Geometry>
+                {
+                    CreateTriangle(size, widthContainer, heightContainer),
+                    CreateSquare(size, widthContainer, heightContainer),
+                    CreateEllipse(size, widthContainer, heightContainer),
+                    CreateRhomb(size, widthContainer, heightContainer),
+                    CreateFlame(size, widthContainer, heightContainer),
+                    CreatePentagon(size, widthContainer, heightContainer),
+                    CreateStar(size, widthContainer, heightContainer)
+                };
 
-            // Проверка пересечений и звезду поменять.
+            }
+
+            cnvAnswerFirst.Children.Clear();
+
+            foreach (Geometry item in figures)
+            {
+                cnvAnswerFirst.Children.Add(new Path()
+                {
+                    StrokeThickness = 3,
+                    Stroke = (Brush)new BrushConverter().ConvertFrom("#F14C18"),
+                    Data = item
+                });
+            }
         }
 
-        private Path CreateTriangle(int size, int widthContainer, int heightContainer)
+        private bool CheckIntersections()
+        {
+            return true;
+        }
+
+        private Geometry CreateTriangle(int size, int widthContainer, int heightContainer)
         {
             Point pointStart = new Point(Rnd.Next(1, widthContainer - size), Rnd.Next(size, heightContainer - 1));
             Point[] points = new Point[] {
@@ -59,15 +76,10 @@ namespace TestShool
                 ctx.PolyLineTo(points, true, false);
             }
 
-            return new Path()
-            {
-                StrokeThickness = 3,
-                Stroke = (Brush)new BrushConverter().ConvertFrom("#F14C18"),
-                Data = g
-            };
+            return g;
         }
 
-        private Path CreateSquare(int size, int widthContainer, int heightContainer)
+        private Geometry CreateSquare(int size, int widthContainer, int heightContainer)
         {
             Geometry g = new RectangleGeometry(new Rect
                 (
@@ -75,15 +87,10 @@ namespace TestShool
                 new Size(size, size)
                 ));
 
-            return new Path()
-            {
-                StrokeThickness = 3,
-                Stroke = (Brush)new BrushConverter().ConvertFrom("#F14C18"),
-                Data = g
-            };
+            return g;
         }
 
-        private Path CreateEllipse(int size, int widthContainer, int heightContainer)
+        private Geometry CreateEllipse(int size, int widthContainer, int heightContainer)
         {
             Geometry g = new EllipseGeometry
                 (
@@ -95,15 +102,10 @@ namespace TestShool
                 size / 2
                 );
 
-            return new Path()
-            {
-                StrokeThickness = 3,
-                Stroke = (Brush)new BrushConverter().ConvertFrom("#F14C18"),
-                Data = g
-            };
+            return g;
         }
 
-        private Path CreateRhomb(int size, int widthContainer, int heightContainer)
+        private Geometry CreateRhomb(int size, int widthContainer, int heightContainer)
         {
             Point pointStart = new Point(Rnd.Next(size / 2 + 1, widthContainer - size / 2), Rnd.Next(size + 1, heightContainer - 1));
             Point[] points = new Point[]
@@ -120,15 +122,10 @@ namespace TestShool
                 ctx.PolyLineTo(points, true, false);
             }
 
-            return new Path()
-            {
-                StrokeThickness = 3,
-                Stroke = (Brush)new BrushConverter().ConvertFrom("#F14C18"),
-                Data = g
-            };
+            return g;
         }
 
-        private Path CreateFlame(int size, int widthContainer, int heightContainer)
+        private Geometry CreateFlame(int size, int widthContainer, int heightContainer)
         {
             Point pointStart = new Point(Rnd.Next(1, widthContainer - size), Rnd.Next(size - size / 4 + 1, heightContainer - size / 4));
             Point[] points = new Point[]
@@ -146,15 +143,10 @@ namespace TestShool
                 ctx.PolyLineTo(points, true, false);
             }
 
-            return new Path()
-            {
-                StrokeThickness = 3,
-                Stroke = (Brush)new BrushConverter().ConvertFrom("#F14C18"),
-                Data = g
-            };
+            return g;
         }
 
-        private Path CreatePentagon(int size, int widthContainer, int heightContainer)
+        private Geometry CreatePentagon(int size, int widthContainer, int heightContainer)
         {
             Point pointStart = new Point(Rnd.Next(1, widthContainer - size), Rnd.Next(size - size / 4 + 1, heightContainer - size / 4));
             Point[] points = new Point[]
@@ -172,15 +164,10 @@ namespace TestShool
                 ctx.PolyLineTo(points, true, false);
             }
 
-            return new Path()
-            {
-                StrokeThickness = 3,
-                Stroke = (Brush)new BrushConverter().ConvertFrom("#F14C18"),
-                Data = g
-            };
+            return g;
         }
 
-        private Path CreateStar(int size, int widthContainer, int heightContainer)
+        private Geometry CreateStar(int size, int widthContainer, int heightContainer)
         {
             int count = 5;
             int outerRadius = size / 2;
@@ -212,12 +199,7 @@ namespace TestShool
                 ctx.PolyLineTo(points, true, false);
             }
 
-            return new Path()
-            {
-                StrokeThickness = 3,
-                Stroke = (Brush)new BrushConverter().ConvertFrom("#F14C18"),
-                Data = g
-            };
+            return g;
         }
 
         //private int GetCoordinateY(int size, int sizeContainer, bool IsUp)
