@@ -10,7 +10,7 @@
         <ScrollViewer>
             <StackPanel Margin="10">
                 <TextBlock Text="1. Расставь верные знаки." FontSize="20"/>
-                <Canvas Name="cnvAnswerFirst" Margin="30 10 30 10" Height="15"/>
+                <Canvas Name="cnvQuestionFirst" Height="15"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>
