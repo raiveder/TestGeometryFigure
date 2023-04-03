@@ -182,7 +182,7 @@ namespace TestShool
         /// </summary>
         /// <param name="IsUp">true - фигура располагается в верхней половине контейнера, false - в нижней</param>
         /// <returns>Координата Y крайней нижней точки фигуры</returns>
-        public int GetCoordinateY(bool IsUp)
+        private int GetCoordinateY(bool IsUp)
         {
             if (IsUp)
             {
@@ -199,7 +199,7 @@ namespace TestShool
         /// </summary>
         /// <param name="points">коллекция точек для отрисовки фигуры</param>
         /// <returns>Фигура, созданная по заданным точкам</returns>
-        public static Geometry GetGeometryFromPoints(PointCollection points)
+        private Geometry GetGeometryFromPoints(PointCollection points)
         {
             Geometry geometry = new StreamGeometry();
 
@@ -228,5 +228,7 @@ namespace TestShool
 
             return offset + _sizeFigures;
         }
+
+        public static 
     }
 }
