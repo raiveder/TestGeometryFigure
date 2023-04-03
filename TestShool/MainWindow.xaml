@@ -5,12 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestShool"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="600" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <ScrollViewer>
             <StackPanel Margin="10">
-                <TextBlock Text="1. Расставь верные знаки." FontSize="20"/>
-                <Canvas Name="cnvQuestionFirst" Height="15"/>
+                <TextBlock Text="Фигуры" FontSize="20" HorizontalAlignment="Center"/>
+                <Canvas Name="cnvFigure" Background="Aqua" Width="400" Height="200"/>
+                <TextBlock Text="Цифры" FontSize="20" HorizontalAlignment="Center"/>
+                <Canvas Name="cnvNumbers" Background="Aqua" Width="400" Height="200" Margin="0 00 0 10"/>
+                <Button Content="Запуск генерации" Click="Button_Click"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>
