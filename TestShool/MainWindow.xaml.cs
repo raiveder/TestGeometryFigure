@@ -27,15 +27,17 @@ namespace TestShool
             Figures figures = new Figures(40, 200, 400); // Размер фигур, высота и ширина контейнера.
 
             List<CreateFiguresDelegate> createFiguresMethods = new List<CreateFiguresDelegate> // Сюда добавляем фигуры, которые нам надо.
-            {                                                                                  // Эту процедуру надо будет сделать через рандом,
-                figures.CreateTriangle,                                                        // чтобы они спавнились в случайном порядке (без повторений).
-                figures.CreateSquare,                                                          // Но это уде ответственность человека, использующего данный функционал.
-                figures.CreateEllipse,                                                         // Для примера использования я сделал хардкодом, как и некоторые другие вещи.
+            {
+                figures.CreateTriangle,
+                figures.CreateSquare,
+                figures.CreateEllipse,
                 figures.CreateRhomb,
                 figures.CreateFlame,
                 figures.CreatePentagon,
                 figures.CreateStar
             };
+
+            Figures.ShuffleCreateFiguresMethods(createFiguresMethods); // Перемешивает фигуры для рандомного расположения их в контейнере.
 
             List<Geometry> listFigures = new List<Geometry>();
             int offset = figures.GetOffset(createFiguresMethods.Count); // Отступы между фигурами (высчитывается автоматически на основании ширины контейнера,
